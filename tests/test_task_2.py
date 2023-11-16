@@ -20,3 +20,8 @@ def test_grammar_shows_false_when_First_wrong():
 def test_grammar_works_with_full_stop():
     result = grammar_checker("Finally, it is correct.")
     assert result == True
+
+def test_throws_an_error_for_empty_string():
+    with pytest.raises(Exception) as e:
+        grammar_checker("")
+    assert str(e.value) == "Can't check an empty string"
